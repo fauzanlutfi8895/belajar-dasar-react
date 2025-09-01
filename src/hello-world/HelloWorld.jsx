@@ -9,10 +9,14 @@ export default function HelloWorld() {
 
 function HeaderHelloWorld() {
   const text = "Hello world";
-  return <h1>{text.toUpperCase()}</h1>;
+  return <h1 style={{ color: "red", backgroundColor: "aqua" }}>{text.toUpperCase()}</h1>;
 }
 
 function ParagraphHelloWorld() {
   const text = "Selamat Belajar React dari Coding with Fauzan";
-  return <p>{text.toUpperCase()}</p>;
+  const style = {
+    color: "white",
+    backgroundColor: "brown",
+  };
+  return <p style={style}>{text.toUpperCase()}</p>;
 }
