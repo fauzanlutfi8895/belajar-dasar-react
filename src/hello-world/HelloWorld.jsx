@@ -8,9 +8,11 @@ export default function HelloWorld() {
 }
 
 function HeaderHelloWorld() {
-  return <h1>Hello world</h1>;
+  const text = "Hello world";
+  return <h1>{text.toUpperCase()}</h1>;
 }
 
 function ParagraphHelloWorld() {
-  return <p>Selamat Belajar React dari Coding with Fauzan</p>;
+  const text = "Selamat Belajar React dari Coding with Fauzan";
+  return <p>{text.toUpperCase()}</p>;
 }
