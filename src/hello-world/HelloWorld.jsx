@@ -1,10 +1,16 @@
-const HelloWorld = () => {
+export default function HelloWorld() {
   return (
     <div>
-      <h1>Hello world</h1>
-      <p>Selamat Belajar React dari Coding with Fauzan</p>
+      <HeaderHelloWorld />
+      <ParagraphHelloWorld />
     </div>
   );
-};
+}
 
-export default HelloWorld;
+function HeaderHelloWorld() {
+  return <h1>Hello world</h1>;
+}
+
+function ParagraphHelloWorld() {
+  return <p>Selamat Belajar React dari Coding with Fauzan</p>;
+}
