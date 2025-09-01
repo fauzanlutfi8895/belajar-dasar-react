@@ -1,14 +1,18 @@
 export default function HelloWorld() {
+  //Spread syntax
+  const props = {
+    text: "Hai Upiii",
+  };
   return (
     <div>
-      <HeaderHelloWorld />
+      <HeaderHelloWorld {...props} /> {/* Attribut yg muncul dari parameter child nya, kalau atribut dihapus tetap muncul sesuai isi props di child*/}
       <ParagraphHelloWorld />
     </div>
   );
 }
 
-function HeaderHelloWorld() {
-  const text = "Hello world";
+//Menambah props
+function HeaderHelloWorld({ text }) {
   return <h1 style={{ color: "red", backgroundColor: "aqua" }}>{text.toUpperCase()}</h1>;
 }
 
