@@ -37,7 +37,7 @@ const TodoList = () => {
   return (
     <ul>
       {data.map(todo => (
-        <Todo key={todo.id} {...todo} />
+        <Todo key={todo.id} {...todo} /> //Di esLint akan error jika tidak menambahkan key
       ))}
     </ul>
   ); //kalo pakai kurung kurawal wajib return, biasanya pakai const baru return const tersebut
