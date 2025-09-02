@@ -8,6 +8,7 @@ import AlertButton from "../button/AlertButton";
 import MyButton from "../button/MyButton";
 import Toolbar from "../button/Toolbar";
 import SearchForm from "../form/SearchForm";
+import SayHelloForm from "../form/SayHelloForm";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,9 +21,9 @@ createRoot(document.getElementById("root")).render(
 
       {/* Untuk menghentikan propagation (trigger bubble) */}
       <Toolbar onClick={e => (e.stopPropagation(), alert("You click Toolbar"))} />
-
-        
       <SearchForm />
+
+      <SayHelloForm />
     </Container>
   </StrictMode>
 );
