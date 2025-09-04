@@ -26,7 +26,17 @@ const Counter = () => {
     <div>
       <button
         onClick={() => {
-          setCounter(counter + 1);
+          // setCounter(counter + 1);
+          
+          //tanpa closure hanya mengecek apakah ada perbuahan state, tidak langsung cetak
+          // setCounter(counter + 1);
+          // setCounter(counter + 1);
+          // setCounter(counter + 1);
+
+          //Dengan closure bisa update
+          setCounter(c => c + 1);
+          setCounter(c => c + 1);
+          setCounter(c => c + 1);
         }}
       >
         Increment
