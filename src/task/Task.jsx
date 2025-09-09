@@ -1,36 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 import { useImmer } from "use-immer";
 
-const Task = () => {
-  const [item, setItem] = useState("");
-  const [items, setItems] = useImmer([]);
+export default function WithImmer() {
+  const [state, setState] = useImmer({
+    todos: ["Belajar React", "Ngopi"],
+    newTodo: "",
+  });
 
-  function handleChange(e) {
-    setItem(e.target.value);
-  }
-  function handleClick(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setItems(draft => {
-      draft.push(item);
+    if (!state.newTodo.trim()) return;
+
+    setState((draft) => {
+      draft.todos.push(state.newTodo);
+      draft.newTodo = "";
     });
-    setItem("");
-  }
+  };
+
+  const handleChange = (e) => {
+    setState((draft) => {
+      draft.newTodo = e.target.value;
+    });
+  };
+
+  const handleRemove = (index) => {
+    setState((draft) => {
+      draft.todos.splice(index, 1);
+    });
+  };
 
   return (
     <div>
-      <h1>Create task</h1>
-      <form>
-        <input value={item} onChange={handleChange} />
-        <button onClick={handleClick}>Add</button>
+      <h2>Todo List (useImmer)</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={state.newTodo}
+          onChange={handleChange}
+          placeholder="Tambah task..."
+        />
+        <button type="submit">Tambah</button>
       </form>
-      <h1>List Task</h1>
+
       <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
+        {state.todos.map((t, i) => (
+          <li key={i}>
+            {t} <button onClick={() => handleRemove(i)}>❌</button>
+          </li>
         ))}
       </ul>
     </div>
   );
-};
-
-export default Task;
+}
